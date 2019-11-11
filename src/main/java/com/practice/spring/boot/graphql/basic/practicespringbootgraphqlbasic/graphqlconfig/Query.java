@@ -14,16 +14,20 @@ public class Query implements GraphQLQueryResolver {
     @Autowired
     PersonService personService;
 
-    public List<Person> getAllPerson(int count) {
-        return personService.getAllPerson(count);
-    }
-
-    public Person getPerson(long id) {
+    public Person person(Long id) {
         return personService.getPerson(id);
     }
 
-    public Person getPersonByEmail(String email) {
+    public Person personByName(String name) {
+        return personService.getPersonByName(name);
+    }
+
+    public Person personByEmail(String email) {
         return personService.getPersonByEmail(email);
+    }
+
+    public List<Person> persons() {
+        return personService.getAllPerson();
     }
 
 }

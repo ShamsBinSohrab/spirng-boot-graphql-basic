@@ -5,9 +5,10 @@ type Person {
 }
 
 type Query {
-    getAllPerson(count: Int): [Person]
-    getPerson(id: ID): Person
-    getPersonByEmail(email: String): Person
+    person(id: ID): Person
+    personByName(name: String): Person
+    personByEmail(email: String): Person
+    persons: [Person]
 }
 
 type Mutation {

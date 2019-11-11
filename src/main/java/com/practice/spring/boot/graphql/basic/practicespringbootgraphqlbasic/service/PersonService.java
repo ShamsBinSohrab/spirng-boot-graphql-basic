@@ -5,6 +5,7 @@ import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.rep
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,19 +15,23 @@ public class PersonService {
     @Autowired
     private PersonRepository personRepository;
 
-    public List<Person> getAllPerson(int count) {
-        return personRepository.findAll().stream().limit(count).collect(Collectors.toList());
-    }
-
-    public Person getPerson(long id) {
+    public Person getPerson(Long id) {
         return personRepository.findById(id).orElse(null);
-    }
-
-    public Person addPerson(String name, String email) {
-        return personRepository.save(new Person(name, email));
     }
 
     public Person getPersonByEmail(String email) {
         return personRepository.findByEmail(email).orElse(null);
+    }
+
+    public Person getPersonByName(String name) {
+        return personRepository.findByName(name).orElse(null);
+    }
+
+    public List<Person> getAllPerson() {
+        return personRepository.findAll();
+    }
+
+    public Person addPerson(String name, String email) {
+        return personRepository.save(new Person(name, email));
     }
 }
