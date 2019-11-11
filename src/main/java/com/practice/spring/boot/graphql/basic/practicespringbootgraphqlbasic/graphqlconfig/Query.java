@@ -43,4 +43,8 @@ public class Query implements GraphQLQueryResolver {
         return vehicleService.getAllVehicles();
     }
 
+    public List<Vehicle> vehiclesByOwnerName(String ownerName) {
+        return vehicleService.getAllVehiclesByOwnerName(ownerName);
+    }
+
 }

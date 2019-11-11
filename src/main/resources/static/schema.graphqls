@@ -6,6 +6,7 @@ type Query {
     personsByCountry(country: Country): [Person]
 
     vehicles: [Vehicle]
+    vehiclesByOwnerName(ownerName: String): [Vehicle]
 }
 type Mutation {
     addPerson(name: String!, email: String, country: Country): Person

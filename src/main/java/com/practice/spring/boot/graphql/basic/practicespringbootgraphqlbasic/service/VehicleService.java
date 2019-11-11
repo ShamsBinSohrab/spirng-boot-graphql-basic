@@ -26,4 +26,8 @@ public class VehicleService {
     public List<Vehicle> getAllVehicles() {
         return vehicleRepository.findAll();
     }
+
+    public List<Vehicle> getAllVehiclesByOwnerName(String ownerName) {
+        return vehicleRepository.findAllByOwnerName(ownerName);
+    }
 }
