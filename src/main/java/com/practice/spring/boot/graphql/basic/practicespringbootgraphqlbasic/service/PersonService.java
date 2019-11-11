@@ -1,5 +1,6 @@
 package com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.service;
 
+import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Country;
 import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Person;
 import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +28,15 @@ public class PersonService {
         return personRepository.findByName(name).orElse(null);
     }
 
-    public List<Person> getAllPerson() {
+    public List<Person> getAllPersons() {
         return personRepository.findAll();
     }
 
-    public Person addPerson(String name, String email) {
-        return personRepository.save(new Person(name, email));
+    public Person addPerson(String name, String email, Country country) {
+        return personRepository.save(new Person(name, email, country));
+    }
+
+    public List<Person> getAllPersonsByCountry(Country country) {
+        return personRepository.findAllByCountry(country);
     }
 }

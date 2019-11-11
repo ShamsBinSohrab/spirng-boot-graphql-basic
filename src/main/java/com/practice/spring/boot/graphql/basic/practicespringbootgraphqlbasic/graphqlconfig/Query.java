@@ -1,6 +1,7 @@
 package com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.graphqlconfig;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Country;
 import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Person;
 import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,11 @@ public class Query implements GraphQLQueryResolver {
     }
 
     public List<Person> persons() {
-        return personService.getAllPerson();
+        return personService.getAllPersons();
+    }
+
+    public List<Person> personsByCountry(Country country) {
+        return personService.getAllPersonsByCountry(country);
     }
 
 }

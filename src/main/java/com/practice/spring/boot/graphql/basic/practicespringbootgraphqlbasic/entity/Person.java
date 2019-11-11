@@ -12,13 +12,15 @@ public class Person {
     private Long id;
     private String name;
     private String email;
+    private Country country;
 
     public Person() {
     }
 
-    public Person(String name, String email) {
+    public Person(String name, String email, Country country) {
         this.name = name;
         this.email = email;
+        this.country = country;
     }
 
     public Long getId() {
@@ -43,5 +45,13 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
     }
 }

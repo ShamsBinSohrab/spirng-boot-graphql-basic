@@ -1,5 +1,6 @@
 package com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.repository;
 
+import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Country;
 import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -11,4 +12,5 @@ import java.util.Optional;
 public interface PersonRepository extends JpaRepository<Person, Long> {
     Optional<Person> findByName(String name);
     Optional<Person> findByEmail(String email);
+    List<Person> findAllByCountry(Country country);
 }
