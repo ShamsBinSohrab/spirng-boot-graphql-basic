@@ -8,6 +8,8 @@ import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.rep
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class VehicleService {
 
@@ -19,5 +21,9 @@ public class VehicleService {
     public Vehicle addVehicle(Brand brand, Color color, String ownerName, String vehicleRegNo) {
         Person owner = personService.getPersonByName(ownerName);
         return vehicleRepository.save(new Vehicle(brand, color, owner, vehicleRegNo));
+    }
+
+    public List<Vehicle> getAllVehicles() {
+        return vehicleRepository.findAll();
     }
 }

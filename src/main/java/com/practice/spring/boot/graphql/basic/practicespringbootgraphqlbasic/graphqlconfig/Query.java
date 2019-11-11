@@ -3,7 +3,9 @@ package com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.gr
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Country;
 import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Person;
+import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Vehicle;
 import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.service.PersonService;
+import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +16,8 @@ public class Query implements GraphQLQueryResolver {
 
     @Autowired
     PersonService personService;
+    @Autowired
+    VehicleService vehicleService;
 
     public Person person(Long id) {
         return personService.getPerson(id);
@@ -33,6 +37,10 @@ public class Query implements GraphQLQueryResolver {
 
     public List<Person> personsByCountry(Country country) {
         return personService.getAllPersonsByCountry(country);
+    }
+
+    public List<Vehicle> vehicles() {
+        return vehicleService.getAllVehicles();
     }
 
 }
