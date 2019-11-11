@@ -5,6 +5,14 @@ type Person {
     country: Country
 }
 
+type Vehicle {
+    id: ID!
+    brand: Brand!
+    color: Color!
+    owner: Person!
+    vehicleRegNo: String!
+}
+
 type Query {
     person(id: ID): Person
     personByName(name: String): Person
@@ -15,6 +23,7 @@ type Query {
 
 type Mutation {
     addPerson(name: String!, email: String, country: Country): Person
+    addVehicle(brand: Brand!, color: Color!, ownerName: String!, vehicleRegNo: String!): Vehicle
 }
 
 enum Country {
@@ -22,4 +31,20 @@ enum Country {
     INDIA,
     PAKISTAN,
     UNITED_STATES
+}
+
+enum Brand {
+    BMW,
+    AUDI,
+    MERCEDES,
+    TOYOTA
+}
+
+enum Color {
+    BLACK,
+    WHITE,
+    RED,
+    BLUE,
+    GREEN,
+    GREY
 }

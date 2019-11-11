@@ -1,5 +1,7 @@
 package com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.service;
 
+import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Brand;
+import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Color;
 import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Country;
 import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Person;
 import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.repository.PersonRepository;
