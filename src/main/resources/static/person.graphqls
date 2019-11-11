@@ -1,0 +1,15 @@
+type Person {
+    id: ID!
+    name: String!
+    email: String
+}
+
+type Query {
+    getAllPerson(count: Int): [Person]
+    getPerson(id: ID): Person
+    getPersonByEmail(email: String): Person
+}
+
+type Mutation {
+    addPerson(name: String!, email: String): Person
+}
