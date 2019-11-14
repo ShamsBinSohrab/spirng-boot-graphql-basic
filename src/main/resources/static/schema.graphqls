@@ -5,7 +5,7 @@ type Query {
     persons: [Person]
     personsByCountry(country: Country): [Person]
 
-    vehicles: [Vehicle]
+    vehicles(brand: Brand = NONE, color: Color = NONE): [Vehicle]
     vehiclesByOwnerName(ownerName: String): [Vehicle]
 }
 type Mutation {

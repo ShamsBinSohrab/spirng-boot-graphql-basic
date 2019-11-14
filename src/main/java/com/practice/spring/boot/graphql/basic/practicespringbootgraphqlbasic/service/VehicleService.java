@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class VehicleService {
@@ -23,8 +26,15 @@ public class VehicleService {
         return vehicleRepository.save(new Vehicle(brand, color, owner, vehicleRegNo));
     }
 
-    public List<Vehicle> getAllVehicles() {
-        return vehicleRepository.findAll();
+    public List<Vehicle> getAllVehicles(Brand brand, Color color) {
+        Stream<Vehicle> vehicleStream = vehicleRepository.findAll().stream();
+        if (Objects.nonNull(brand)) {
+            vehicleStream = vehicleStream.filter(vehicle -> vehicle.getBrand().equals(brand));
+        }
+        if (Objects.nonNull(color)) {
+            vehicleStream = vehicleStream.filter(vehicle -> vehicle.getColor().equals(color));
+        }
+        return vehicleStream.collect(Collectors.toList());
     }
 
     public List<Vehicle> getAllVehiclesByOwnerName(String ownerName) {

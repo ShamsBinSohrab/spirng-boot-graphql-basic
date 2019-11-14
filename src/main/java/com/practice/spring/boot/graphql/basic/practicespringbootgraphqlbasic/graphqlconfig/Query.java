@@ -1,6 +1,8 @@
 package com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.graphqlconfig;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Brand;
+import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Color;
 import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Country;
 import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Person;
 import com.practice.spring.boot.graphql.basic.practicespringbootgraphqlbasic.entity.Vehicle;
@@ -39,8 +41,8 @@ public class Query implements GraphQLQueryResolver {
         return personService.getAllPersonsByCountry(country);
     }
 
-    public List<Vehicle> vehicles() {
-        return vehicleService.getAllVehicles();
+    public List<Vehicle> vehicles(Brand brand, Color color) {
+        return vehicleService.getAllVehicles(brand, color);
     }
 
     public List<Vehicle> vehiclesByOwnerName(String ownerName) {
